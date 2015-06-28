@@ -16,6 +16,7 @@ var token, socket, $errMessage;
              $('#messages').prepend($('<li>').text(info + ": " +msg));
           });
 
+          //SOCKET SOUND LISTENERS from SERVER! ********************
           socket.on('vDownReceiver', function (){
             $('mainAudio').attr('src', "../sounds/stringsPlay.mp3")
             $('mainAudio').play();
@@ -28,9 +29,17 @@ var token, socket, $errMessage;
             $('#elecBeatA')[0].play();
           });
 
+          socket.on('bongoDrumE', function(){
+            $('#playBongo').attr('src', '../sounds/bonGo.mp3');
+            $('#playBongo')[0].play();
+            document.body.style.background = "purple";
+          });
 
-
-        }
+          socket.on('playStrings1R', function(){
+            $('#playStrings').attr('src', '../sounds/elecStrings.mp3');
+            $('#playStrings')[0].play();
+          });
+        }; // this closes the connect function. 
 
         connect();
 
@@ -61,7 +70,10 @@ var token, socket, $errMessage;
                 $('#issue').hide();
                 $('#text').focus()
                 $('#backingTrack').removeClass('hidden');
-                $('#backingTrack').addClass('ui inverted segment')
+                $('#backingTrack').addClass('ui inverted segment');
+                $('#melody').addClass('ui inverted segment');
+                $('#harmony').addClass('ui inverted segment');
+                $('#bass').addClass('ui inverted segment')
             }).fail(function(err){
               if ($errMessage) $errMessage.remove()
               $("#issue").removeClass("hidden");
@@ -78,14 +90,26 @@ var token, socket, $errMessage;
         })
 
 
+//************** CLIENT SIDE KEY PRESS EVENT LISTENER SOCKET EMITS.. SOUNDS/ANIMATIONS ************** 
         $('#elecBeat').on('click', function(){
           $('#elecBeatA').attr('src', "../sounds/elecBeat.mp3")
           $('#elecBeatA')[0].play();
           document.body.style.background = "black"
           socket.emit('beat#1');
-        })
+        });
 
-//************** CLIENT SIDE KEY PRESS EVENT LISTENER SOCKET EMITS.. SOUNDS/ANIMATIONS ************** 
+        $('#bongo').on('click', function(){
+          $('#playBongo').attr('src', '../sounds/bonGo.mp3');
+          $('#playBongo')[0].play();
+          document.body.style.background = "purple"
+          socket.emit('bongoDrum');
+        });
+
+        $('#stringsPlay').on('click', function(){
+          $('#playStrings').attr('src', '../sounds/elecStrings.mp3');
+          $('#playStrings')[0].play();
+          socket.emit('playStrings1');
+        });
         
           addEventListener("keydown", function(event) {
             if (event.keyCode == 86) {
@@ -95,10 +119,9 @@ var token, socket, $errMessage;
               socket.emit('vDown', {'keyCode': 86});
             };
           });
-
-
           
-});
+          });
+          //this closes document onload. 
         
 
 // $(function(){    

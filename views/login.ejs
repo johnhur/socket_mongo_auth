@@ -4,6 +4,7 @@
     <title>Socket IO with Auth</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/semantic.min.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/semantic.min.js"></script>
 
 </head>
@@ -57,11 +58,28 @@
 
         <audio id="mainAudio"></audio>
     
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        
         <script src="/socket.io/socket.io.js"></script>
         <script src="/js/javaScript.js"></script>
 
 <div id="backingTrack" class="footer, hidden">
+
+  <div class="ui inverted button">Standard</div>
+  <div id="bongo" class="ui inverted black button">Bongo 
+    <audio id="playBongo"></audio>
+  </div>
+  <div id="elecBeat" class="ui inverted yellow button">Beat #1
+    <audio id="elecBeatA"></audio>
+  </div>
+  <div id="stringsPlay" class="ui inverted green button">String Stacc 
+  <audio id="playStrings"></audio>
+  </div>
+  <div class="ui inverted blue button">Blue</div>
+  <div class="ui inverted orange button">Orange</div>
+  <div class="ui inverted teal button">Teal</div>
+</div>
+
+<div id="melody" class="footer">
 
   <div class="ui inverted button">Standard</div>
   <div class="ui inverted black button">Black</div>
@@ -73,6 +91,36 @@
   <div class="ui inverted orange button">Orange</div>
   <div class="ui inverted teal button">Teal</div>
 </div>
+
+<div id="harmony" class="">
+
+  <div class="ui inverted button">Standard</div>
+  <div class="ui inverted black button">Black</div>
+  <div id="elecBeat" class="ui inverted yellow button">Beat #1
+    <audio id="elecBeatA"></audio>
+  </div>
+  <div class="ui inverted green button">Green</div>
+  <div class="ui inverted blue button">Blue</div>
+  <div class="ui inverted orange button">Orange</div>
+  <div class="ui inverted teal button">Teal</div>
+</div>
+
+
+<div id="bass" class="">
+
+  <div class="ui inverted button">Standard</div>
+  <div class="ui inverted black button">Black</div>
+  <div id="elecBeat" class="ui inverted yellow button">Beat #1
+    <audio id="elecBeatA"></audio>
+  </div>
+  <div class="ui inverted green button">Green</div>
+  <div class="ui inverted blue button">Blue</div>
+  <div class="ui inverted orange button">Orange</div>
+  <div class="ui inverted teal button">Teal</div>
+</div>
+
+
+
 
 
 </body>

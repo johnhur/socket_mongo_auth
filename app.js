@@ -92,6 +92,13 @@ io.on('connection', function (socket) {
       io.emit('vDownReceiver', data);
     })
 
+    socket.on('bongoDrum', function(){
+      io.emit('bongoDrumE');
+    })
+
+    socket.on('playStrings1', function(){
+      io.emit('playStrings1R');
+    })
 
 
   });
