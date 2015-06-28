@@ -79,9 +79,21 @@ io.use(socketio_jwt.authorize({
 
 io.on('connection', function (socket) {
     console.log(socket.decoded_token.username, 'connected');
+
     socket.on('message', function(message){
       io.emit("data", message, socket.decoded_token.username);
     });
+
+    socket.on('beat#1', function(data){
+      io.emit('beat#1R');
+    });
+
+    socket.on('vDown', function(data){
+      io.emit('vDownReceiver', data);
+    })
+
+
+
   });
 
 
