@@ -13,8 +13,14 @@ var token, socket, $errMessage;
           }).on('disconnect', function () {
             console.log('disconnected');
           }).on('data', function(msg, info){
-             $('#messages').prepend($('<li>').text(info + ": " +msg))
-             $('#messages').;
+            var newLi = $('<li>').text(info + ": " +msg)
+             $('#messages').prepend(newLi);
+             newLi.fadeOut(5000, function() {
+
+             })
+             setTimeout(function(){
+              (newLi.remove());}, 15000);
+             })
           });
 
           //SOCKET SOUND LISTENERS from SERVER! ********************
