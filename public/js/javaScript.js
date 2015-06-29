@@ -21,7 +21,7 @@ var token, socket, $errMessage;
              setTimeout(function(){
               (newLi.remove());}, 15000);
              })
-          };
+          
 
           //SOCKET SOUND LISTENERS from SERVER! ********************
           socket.on('vDownReceiver', function (){
@@ -50,8 +50,8 @@ var token, socket, $errMessage;
           socket.on('trumpR', function(){
             $('#playStrings').attr('src', '../sounds/hornsBe.mp3');
             $('#playStrings')[0].play();
-          })
-        }; // this closes the connect function. 
+          });
+         };// this closes the connect function. 
 
         connect();
 
