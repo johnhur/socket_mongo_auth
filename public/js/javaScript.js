@@ -39,7 +39,16 @@ var token, socket, $errMessage;
             $('#playStrings').attr('src', '../sounds/elecStrings.mp3');
             $('#playStrings')[0].play();
           });
+
+          socket.on('trumpR', function(){
+            $('#playStrings').attr('src', '../sounds/elecStrings.mp3');
+            $('#playStrings')[0].play();
+          })
         }; // this closes the connect function. 
+
+
+
+
 
         connect();
 
@@ -110,6 +119,20 @@ var token, socket, $errMessage;
           $('#playStrings')[0].play();
           socket.emit('playStrings1');
         });
+
+        $('#stringsPlay').on('click', function(){
+          $('#playStrings').attr('src', '../sounds/elecStrings.mp3');
+          $('#playStrings')[0].play();
+          socket.emit('playStrings1');
+        });
+
+        $('#trumpets').on('click', function(){
+          $('#playTrump').attr('src', '../sounds/beTogetherHorns.mp3');
+          $('#playTrump')[0].play();
+          socket.emit('trump');
+        });
+        
+        
         
           addEventListener("keydown", function(event) {
             if (event.keyCode == 86) {

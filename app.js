@@ -100,7 +100,9 @@ io.on('connection', function (socket) {
       io.emit('playStrings1R');
     })
 
-
+    socket.on('trump', function(){
+      io.emit('trumpR');
+    })
   });
 
 
