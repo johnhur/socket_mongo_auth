@@ -21,7 +21,7 @@ var token, socket, $errMessage;
              setTimeout(function(){
               (newLi.remove());}, 15000);
              })
-          });
+          };
 
           //SOCKET SOUND LISTENERS from SERVER! ********************
           socket.on('vDownReceiver', function (){
