@@ -3,7 +3,7 @@ $(function(){
 var token, socket, $errMessage;
 
         function connect () {
-          socket = io.connect(token ? ('?token=' + token) : '', {
+          socket = io.connect("//test-app-sockets.herokuapp.com:80" + token ? ('?token=' + token) : '', {
             'forceNew': true
           });
           console.log(socket)
@@ -41,14 +41,10 @@ var token, socket, $errMessage;
           });
 
           socket.on('trumpR', function(){
-            $('#playStrings').attr('src', '../sounds/elecStrings.mp3');
+            $('#playStrings').attr('src', '../sounds/hornsBe.mp3');
             $('#playStrings')[0].play();
           })
         }; // this closes the connect function. 
-
-
-
-
 
         connect();
 
@@ -82,7 +78,10 @@ var token, socket, $errMessage;
                 $('#backingTrack').addClass('ui inverted segment');
                 $('#melody').addClass('ui inverted segment');
                 $('#harmony').addClass('ui inverted segment');
-                $('#bass').addClass('ui inverted segment')
+                $('#bass').addClass('ui inverted segment');
+                // $('body').fadeIn(10000, function(){
+                $('body').animate({backgroundColor:"#000"},'slow');
+                // });
             }).fail(function(err){
               if ($errMessage) $errMessage.remove()
               $("#issue").removeClass("hidden");
@@ -127,12 +126,11 @@ var token, socket, $errMessage;
         });
 
         $('#trumpets').on('click', function(){
-          $('#playTrump').attr('src', '../sounds/beTogetherHorns.mp3');
+          $('#playTrump').attr('src', '../sounds/hornsBe.mp3');
           $('#playTrump')[0].play();
           socket.emit('trump');
         });
-        
-        
+                
         
           addEventListener("keydown", function(event) {
             if (event.keyCode == 86) {
