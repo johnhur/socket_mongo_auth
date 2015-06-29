@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/semantic.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/js/jQueryUI.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/semantic.min.js"></script>
 
 </head>
@@ -74,14 +75,14 @@
         <script src="/socket.io/socket.io.js"></script>
         <script src="/js/javaScript.js"></script>
 
-        <div class="clear" id="messages">
+        <div style="color: linen;"class="clear" id="messages">
         </div>
 
         <div style="position:fixed; width:100%; bottom:0px" class = "ui form">
         <div class="field">
         <form id = "message" action="javascript:void(0)" style="display:none">
-          <label for="message">Chat</label>
-          <input type="text" name="message" id="text">
+          <label for="message"></label>
+          <input type="text" name="message" id="text" placeholder="type here to chat">
           <input type="submit" class="hidden">
         </form>
         </div>

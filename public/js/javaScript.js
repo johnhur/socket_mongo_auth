@@ -13,7 +13,8 @@ var token, socket, $errMessage;
           }).on('disconnect', function () {
             console.log('disconnected');
           }).on('data', function(msg, info){
-             $('#messages').prepend($('<li>').text(info + ": " +msg));
+             $('#messages').prepend($('<li>').text(info + ": " +msg))
+             $('#messages').;
           });
 
           //SOCKET SOUND LISTENERS from SERVER! ********************
@@ -80,7 +81,7 @@ var token, socket, $errMessage;
                 $('#harmony').addClass('ui inverted segment');
                 $('#bass').addClass('ui inverted segment');
                 // $('body').fadeIn(10000, function(){
-                $('body').animate({backgroundColor:"#000"},'slow');
+                $('body').animate({backgroundColor:"#000000"},'slow');
                 // });
             }).fail(function(err){
               if ($errMessage) $errMessage.remove()
