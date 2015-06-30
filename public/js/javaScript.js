@@ -15,7 +15,7 @@ var token, socket, $errMessage;
           }).on('data', function(msg, info){
             var newLi = $('<li>').text(info + ": " +msg)
              $('#messages').prepend(newLi);
-             newLi.fadeOut(5000, function() {
+             newLi.fadeOut(15000, function() {
 
              })
              setTimeout(function(){
@@ -51,6 +51,29 @@ var token, socket, $errMessage;
             $('#playStrings').attr('src', '../sounds/hornsBe.mp3');
             $('#playStrings')[0].play();
           });
+
+          //********* BASS EMITS/ONS *************
+
+          socket.on('aDownR', function(){
+            $('#beBassPlay').attr('src', "../sounds/keyA.mp3")
+            $('#beBassPlay')[0].play();
+          });
+
+          socket.on('sDownR', function(){
+            $('#sPlay').attr('src', "../sounds/keyS.mp3")
+            $('#sPlay')[0].play();
+          })
+
+          socket.on('dDownR', function(){
+            $('#dPlay').attr('src', "../sounds/keyD.mp3")
+              $('#dPlay')[0].play();
+          })
+
+          socket.on('fDownR', function(){
+            $('#fPlay').attr('src', "../sounds/keyF.mp3")
+            $('#fPlay')[0].play();
+          })
+
          };// this closes the connect function. 
 
         connect();
@@ -81,8 +104,17 @@ var token, socket, $errMessage;
                 $('.signup').hide();
                 $('#issue').hide();
                 $('#text').focus()
+
                 $('#backingTrack').removeClass('hidden');
                 $('#backingTrack').addClass('ui inverted segment');
+
+                $('#leads').removeClass('hidden');
+                $('#leads').addClass('ui inverted segment');  
+
+                $('#bass').removeClass('hidden');
+                $('#bass').addClass('ui inverted segment');  
+
+
                 $('#melody').addClass('ui inverted segment');
                 $('#harmony').addClass('ui inverted segment');
                 $('#bass').addClass('ui inverted segment');
@@ -147,6 +179,42 @@ var token, socket, $errMessage;
               socket.emit('vDown', {'keyCode': 86});
             };
           });
+
+          addEventListener("keydown", function(event) {
+            if (event.keyCode == 65) { // "a" = keycode 65 
+              $('#beBassPlay').attr('src', "../sounds/keyA.mp3")
+              $('#beBassPlay')[0].play();
+              socket.emit('aDown');
+            };
+          });
+
+
+          addEventListener("keydown", function(event) {
+            if (event.keyCode == 83) { // "s" = keycode 83 
+              $('#sPlay').attr('src', "../sounds/keyS.mp3")
+              $('#sPlay')[0].play();
+              socket.emit('sDown');
+            };
+          });
+
+          addEventListener("keydown", function(event) {
+            if (event.keyCode == 68) { // "d" = keycode 68 
+              $('#dPlay').attr('src', "../sounds/keyD.mp3")
+              $('#dPlay')[0].play();
+              socket.emit('dDown');
+            };
+          });
+
+          addEventListener("keydown", function(event) {
+            if (event.keyCode == 70) { // "f" = keycode 70 
+              $('#fPlay').attr('src', "../sounds/keyF.mp3")
+              $('#fPlay')[0].play();
+              socket.emit('fDown');
+            }
+          });  
+
+
+
           
           });
           //this closes document onload. 

@@ -103,6 +103,42 @@ io.on('connection', function (socket) {
     socket.on('trump', function(){
       io.emit('trumpR');
     })
+
+    //********* BASS EMITS/ONS ************* FINISHED
+    socket.on('aDown', function(){
+      io.emit('aDownR');
+    })
+
+    socket.on('sDown', function(){
+      io.emit('sDownR');
+    })
+
+    socket.on('dDown', function(){
+      io.emit('dDownR');
+    })
+
+    socket.on('fDown', function(){
+      io.emit('fDownR');
+    })
+
+    //******* LEAD EMITS/ONS ********* INCOMPLEETTTEEE
+    socket.on('qDown', function(){
+      io.emit('qDownR');
+    })
+
+    socket.on('wDown', function(){
+      io.emit('wDownR');
+    })
+
+    socket.on('eDown', function(){
+      io.emit('eDownR');
+    })
+
+    socket.on('rDown', function(){
+      io.emit('rDownR');
+    })
+
+
   });
 
 http.listen(process.env.PORT||3000);

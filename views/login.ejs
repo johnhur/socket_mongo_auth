@@ -10,6 +10,7 @@
 
 </head>
 <body>
+<div class="ui centered column" style="width:95%; margin:auto">
         <h2 class="ui dividing header">Login to jamOn</h4>
         <form id="login" action="javascript:void(0)" method="POST" class="ui inverted form">
           <div class="two fields">
@@ -46,39 +47,77 @@
           </ul>
         </div>
         
-        <div id="backingTrack" class="footer, hidden">
+        <div id="backingTrack" class="footer, hidden" style="width:90%; margin:auto">
 
-          <div class="ui inverted button">1</div>
-          <div id="bongo" class="ui inverted black button">2 
+          
+          <div id="bongo" class="ui inverted black button">1 
             <audio id="playBongo"></audio>
           </div>
-          <div id="elecBeat" class="ui inverted yellow button">3
+          <div id="elecBeat" class="ui inverted yellow button">2
             <audio id="elecBeatA"></audio>
           </div>
-          <div id="stringsPlay" class="ui inverted green button">4 
+          <div id="stringsPlay" class="ui inverted green button">3
             <audio id="playStrings"></audio>
           </div>
-          <div id="trumpets" class="ui inverted blue button">5
+          <div id="trumpets" class="ui inverted blue button">4
             <audio id="playTrump"></audio>
           </div>
-          <div class="ui inverted orange button">6</div>
-          <div class="ui inverted teal button">7</div>
-        </div>
+           Percussion
+
+          </div>
+          
+          <div id="leads" class="footer, hidden">
 
 
-    
-        
+          <div id="bongo" class="ui inverted black button">q
+            <audio id="playBongo"></audio>
+          </div>
+          <div id="elecBeat" class="ui inverted yellow button">w
+            <audio id="elecBeatA"></audio>
+          </div>
+          <div id="stringsPlay" class="ui inverted green button">e
+            <audio id="playStrings"></audio>
+          </div>
+          <div id="trumpets" class="ui inverted blue button">r
+            <audio id="playTrump"></audio>
+          </div>
+          
+          Lead Synth
+           </div>
 
+            <div id="bass" class="footer, hidden" style="width:90%; margin:auto">
+
+
+            <div id="beBass" class="ui inverted black button">a
+              <audio id="beBassPlay"></audio>
+            </div>
+            <div id="s" class="ui inverted yellow button">s
+              <audio id="sPlay"></audio>
+            </div>
+            <div id="d" class="ui inverted green button">d
+              <audio id="dPlay"></audio>
+            </div>
+            <div id="f" class="ui inverted blue button">f
+              <audio id="fPlay"></audio>
+            </div>
+            
+            Bass
+
+            </div>
+            
+          
+       
         <audio id="mainAudio"></audio>
     
         
         <script src="/socket.io/socket.io.js"></script>
         <script src="/js/javaScript.js"></script>
+        <p> </p>
 
-        <div style="color: linen;"class="clear" id="messages">
+        <div style="color: linen; top:50px"class="clear" id="messages">
         </div>
 
-        <div style="position:fixed; width:100%; bottom:0px" class = "ui form">
+        <div style="position:absolute; width:95%; bottom:0px" class="ui form">
         <div class="field">
         <form id = "message" action="javascript:void(0)" style="display:none">
           <label for="message"></label>
@@ -130,7 +169,6 @@
  -->
 
 
-
-
+</div>
 </body>
 </html>
