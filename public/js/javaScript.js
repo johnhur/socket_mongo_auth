@@ -74,6 +74,49 @@ var token, socket, $errMessage;
             $('#fPlay')[0].play();
           })
 
+          //*****lead piano receivers*********
+
+          socket.on('qDownR', function(){
+            $('#qPlay').attr('src', "../sounds/keyQ.mp3")
+            $('#qPlay')[0].play();
+          })
+
+          socket.on('wDownR', function(){
+            $('#wPlay').attr('src', "../sounds/keyW.mp3")
+            $('#wPlay')[0].play();
+          })
+
+          socket.on('eDownR', function(){
+            $('#ePlay').attr('src', '../sounds/keyE.mp3')
+            $('#ePlay')[0].play();
+          })
+
+          socket.on('rDownR', function(){
+            $('#rPlay').attr('src', '../sounds/keyR.mp3')
+            $('#rPlay')[0].play();
+          })
+
+          //***********percussion receivers**********
+          socket.on('1DownR', function(){
+            $('#1Play').attr('src', "../sounds/key1.mp3")
+            $('#1Play')[0].play();
+          })
+
+          socket.on('2DownR', function(){
+            $('#2Play').attr('src', "../sounds/key2.mp3")
+            $('#2Play')[0].play();
+          })
+
+          socket.on('3DownR', function(){
+            $('#3Play').attr('src', '../sounds/key3.mp3')
+            $('#3Play')[0].play();
+          })
+
+          socket.on('4DownR', function(){
+            $('#4Play').attr('src', '../sounds/key4.mp3')
+            $('#4Play')[0].play();
+          })
+
          };// this closes the connect function. 
 
         connect();
@@ -103,7 +146,7 @@ var token, socket, $errMessage;
                 $('#login').hide();
                 $('.signup').hide();
                 $('#issue').hide();
-                $('#text').focus()
+                //$('#text').focus()
 
                 $('#backingTrack').removeClass('hidden');
                 $('#backingTrack').addClass('ui inverted segment');
@@ -120,6 +163,7 @@ var token, socket, $errMessage;
                 $('#bass').addClass('ui inverted segment');
                 // $('body').fadeIn(10000, function(){
                 $('body').animate({backgroundColor:"#000000"},'slow');
+                // $('body').prepend().text('<h1>Welcome to jamOn</h1>');
                 // });
             }).fail(function(err){
               if ($errMessage) $errMessage.remove()
@@ -138,19 +182,19 @@ var token, socket, $errMessage;
 
 
 //************** CLIENT SIDE KEY PRESS EVENT LISTENER SOCKET EMITS.. SOUNDS/ANIMATIONS ************** 
-        $('#elecBeat').on('click', function(){
-          $('#elecBeatA').attr('src', "../sounds/elecBeat.mp3")
-          $('#elecBeatA')[0].play();
-          document.body.style.background = "black"
-          socket.emit('beat#1');
-        });
+        // $('#elecBeat').on('click', function(){
+        //   $('#elecBeatA').attr('src', "../sounds/elecBeat.mp3")
+        //   $('#elecBeatA')[0].play();
+        //   document.body.style.background = "black"
+        //   socket.emit('beat#1');
+        // });
 
-        $('#bongo').on('click', function(){
-          $('#playBongo').attr('src', '../sounds/bonGo.mp3');
-          $('#playBongo')[0].play();
-          document.body.style.background = "purple"
-          socket.emit('bongoDrum');
-        });
+        // $('#bongo').on('click', function(){
+        //   $('#playBongo').attr('src', '../sounds/bonGo.mp3');
+        //   $('#playBongo')[0].play();
+        //   document.body.style.background = "purple"
+        //   socket.emit('bongoDrum');
+        // });
 
         $('#stringsPlay').on('click', function(){
           $('#playStrings').attr('src', '../sounds/elecStrings.mp3');
@@ -179,6 +223,8 @@ var token, socket, $errMessage;
               socket.emit('vDown', {'keyCode': 86});
             };
           });
+
+          //*********** EVENT LISTENERS FOR UPRIGHT BASS ***********
 
           addEventListener("keydown", function(event) {
             if (event.keyCode == 65) { // "a" = keycode 65 
@@ -213,157 +259,74 @@ var token, socket, $errMessage;
             }
           });  
 
+          //*********** EVENT LISTENERS FOR keys ***********
+          addEventListener("keydown", function(event) {
+            if (event.keyCode == 81) { // "q" = keycode 81 
+              $('#qPlay').attr('src', "../sounds/keyQ.mp3")
+              $('#qPlay')[0].play();
+              socket.emit('qDown');
+            }
+          }); 
 
+          addEventListener("keydown", function(event) {
+            if (event.keyCode == 87) { // "w" = keycode 87 
+              $('#wPlay').attr('src', "../sounds/keyQ.mp3")
+              $('#wPlay')[0].play();
+              socket.emit('wDown');
+            }
+          });   
 
-          
+          addEventListener("keydown", function(event) {
+            if (event.keyCode == 69) { // "e" = keycode 69 
+              $('#ePlay').attr('src', "../sounds/keyE.mp3")
+              $('#ePlay')[0].play();
+              socket.emit('eDown');
+            }
+          });   
+
+          addEventListener("keydown", function(event) {
+            if (event.keyCode == 82) { // "r" = keycode 82 
+              $('#rPlay').attr('src', "../sounds/keyR.mp3")
+              $('#rPlay')[0].play();
+              socket.emit('rDown');
+            }
+          });   
+
+        //************ EVENT LISTENERS FOR PERCUSSION***********
+
+          addEventListener("keydown", function(event) {
+            if (event.keyCode == 49) { // 1 = 49
+              $('#1Play').attr('src', "../sounds/key1.mp3")
+              $('#1Play')[0].play();
+              socket.emit('1Down');
+            }
+          }); 
+
+          addEventListener("keydown", function(event) {
+            if (event.keyCode == 50) { // 2 = 50
+              $('#2Play').attr('src', "../sounds/key2.mp3")
+              $('#2Play')[0].play();
+              socket.emit('2Down');
+            }
+          });   
+
+          addEventListener("keydown", function(event) {
+            if (event.keyCode == 51) { // 3 = 51
+              $('#3Play').attr('src', "../sounds/key3.mp3")
+              $('#3Play')[0].play();
+              socket.emit('3Down');
+            }
+          });   
+
+          addEventListener("keydown", function(event) {
+            if (event.keyCode == 52) { // 4 = 52
+              $('#4Play').attr('src', "../sounds/key4.mp3")
+              $('#4Play')[0].play();
+              socket.emit('4Down');
+            }
           });
-          //this closes document onload. 
+
+
+ });  //this closes document onload. 
         
 
-// $(function(){    
-
-//      function connect () {
-//           socket = io.connect(token ? ('?token=' + token) : '', {
-//             'forceNew': true
-
-//           });
-//           console.log(socket)
-//           socket.on('authenticated', function () {
-//             console.log('authenticated');
-//           }).on('disconnect', function () {
-//             console.log('disconnected');
-//           }).on('data', function(msg, info){
-//              $('#messages').prepend($('<li>').text(info + ": " +msg));
-//           });
-//         }
-
-//         connect();
-
-//     $('form').submit(function(){
-//       socket.emit('chat message', $('#m').val());
-//       $('#m').val('');
-//       return false;
-//     });
-//     socket.on('chat message', function(msg, user){
-//       console.log("THIS IS THE SOCKET", user);
-//       var newLi = ($('<li>').text(user + ": " + msg))
-//       $('#messages').prepend(newLi);
-
-
-//       // if (!localStorage.getItem("username")){
-//       //   localStorage.setItem("username", user.email);
-//       //   var userName = localStorage.getItem("username")
-//       //   var newLi = ($('<li>').text(userName + ": " + msg))
-//       //   $('#messages').prepend(newLi);
-//       // } else {
-//       // var userNameOG = localStorage.getItem("username")
-//       // var newLi = ($('<li>').text(userNameOG + ": " + msg))
-//       // $('#messages').prepend(newLi);
-//       // newLi.fadeOut(5000, function() {
-//       //   })
-//       // setTimeout(function(){
-//       //   (newLi.remove());
-//       // }, 15000);
-//       });
-//     // });
-
-//     // function setUsername () {
-//     //   username = cleanInput($usernameInput.val().trim());
-
-//     //   // If the username is valid
-//     //   if (username) {
-//     //     $loginPage.fadeOut();
-//     //     $chatPage.show();
-//     //     $loginPage.off('click');
-//     //     $currentInput = $inputMessage.focus();
-
-//     //     // Tell the server your username
-//     //     socket.emit('add user', username);
-//     //   }
-
-
-// function playAnimate(soundPath, backGround, keyAction, keyNum) {
-//   socket.on(keyAction + 'Receiver', function (){
-//     $('#main').attr('src', soundPath)
-//     $('#main')[0].play();
-//     document.body.style.background = backGround
-//   });
-
-//   addEventListener("keydown", function(event) {
-//     if (event.keyCode == keyNum) {
-//       $('#main').attr('src', soundPath)
-//       $('#main')[0].play();
-//       document.body.style.background = backGround
-//       socket.emit('keyAction', {'keyCode': keyNum});
-//     };
-//   });
-// }
-
-// playAnimate("../sounds/stringsPlay.mp3", "violet", "vDown", 86);
-// playAnimate()
-
-// function purpleBack() {
-//   socket.on('vDownReceiver', function (){
-//     $('#mainAudio').attr('src', "../sounds/stringsPlay.mp3")
-//     $('#mainAudio')[0].play();
-//     document.body.style.background = "violet"
-
-//   });
-  // socket.on('keyUpReceiver', function (){
-  //   document.body.style.background = ""
-  // });
-  // addEventListener("keydown", function(event) {
-  //   if (event.keyCode == 86) {
-  //     $('#mainAudio').attr('src', "../sounds/stringsPlay.mp3")
-  //     $('#mainAudio')[0].play();
-  //     document.body.style.background = "violet"
-  //     socket.emit('vDown', {'keyCode': 86});
-  //   };
-  // });
-  // addEventListener("keyup", function(event) {
-  //   if (event.keyCode == 86)
-  //     document.body.style.background = "";
-  //     socket.emit('keyUp', {});
-  // });
-
-// // purpleBack();
-
-// function blueBack() {
-//   addEventListener("keydown", function(event) {
-//     if (event.keyCode == 66)
-//       document.body.style.background = "blue";
-//   });
-//   addEventListener("keyup", function(event) {
-//     if (event.keyCode == 66)
-//       document.body.style.background = "";
-//   });
-// };
-// blueBack();
-
-// function dogBack() {
-//   addEventListener("keydown", function(event) {
-//     if (event.keyCode == 68)
-//       document.body.style.backgroundImage = "url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRX1_u7_dAuwhcaw_h6I_DUSFLHByCzNYYVCLIR_1fT0KygadNF7w')";
-//   });
-//   addEventListener("keyup", function(event) {
-//     if (event.keyCode == 68)
-//       document.body.style.background = "";
-//   });
-// };
-// dogBack();
-
-// $("#elecBeatButton").on("click", function(){
-//   $("#elecBeat")[0].play();
-// })
-// // $("#elecBeatButton").on("click", function(){
-// //   $("#elecBeat")[0].pause();
-// // })
-
-// $('#m, #m1').on("keydown", function(e){
-// e.stopPropagation(); 
-// })
-// $('#m, #m1').on("keyup", function(e){
-// e.stopPropagation(); 
-// })
-
-// });  

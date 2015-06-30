@@ -104,7 +104,7 @@ io.on('connection', function (socket) {
       io.emit('trumpR');
     })
 
-    //********* BASS EMITS/ONS ************* FINISHED
+    //********* BASS EMITS/ONS ************* complete
     socket.on('aDown', function(){
       io.emit('aDownR');
     })
@@ -121,7 +121,7 @@ io.on('connection', function (socket) {
       io.emit('fDownR');
     })
 
-    //******* LEAD EMITS/ONS ********* INCOMPLEETTTEEE
+    //******* LEAD EMITS/ONS ********* complete
     socket.on('qDown', function(){
       io.emit('qDownR');
     })
@@ -137,6 +137,25 @@ io.on('connection', function (socket) {
     socket.on('rDown', function(){
       io.emit('rDownR');
     })
+
+    //************** PERCUSSION EMITS/ONS ***********
+
+    socket.on('1Down', function(){
+      io.emit('1DownR');
+    })
+
+    socket.on('2Down', function(){
+      io.emit('2DownR');
+    })
+
+    socket.on('3Down', function(){
+      io.emit('3DownR');
+    })
+
+    socket.on('4Down', function(){
+      io.emit('4DownR');
+    })
+
 
 
   });
