@@ -163,6 +163,7 @@ var token, socket, $errMessage;
                 $('#bass').addClass('ui inverted segment');
                 // $('body').fadeIn(10000, function(){
                 $('body').animate({backgroundColor:"#000000"},'slow');
+                $('#info').html("Make music with anyone, from anywhere. Start playing by pressing any of the listed keys! Sounds will not play when typing a message.")
                 // $('body').prepend().text('<h1>Welcome to jamOn</h1>');
                 // });
             }).fail(function(err){

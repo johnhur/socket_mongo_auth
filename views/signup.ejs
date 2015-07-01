@@ -3,24 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/semantic.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/js/jQueryUI.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/semantic.min.js"></script>
 </head>
 <body>
+<div class="ui centered column" style="width:95%; margin:auto">
+  <h1 style="color: grey; padding-top:1cm">Welcome to jamOn</h1>
+  <p id="info" style="color: grey">Make music with anyone, from anywhere.</p>
 
-  <form id="login" action="/signup" method="POST">
-    <div>
-      <label for="username">Username: </label>
-      <input type="text" name="user[username]" id="username" autofocus>
+  <form id="login" action="/signup" method="POST" class="ui form">
+  <h1>Create a username and password:</h1>
+    <div class="two fields">
+    <div class="field">
+      <div class="ui icon input">
+      <label for="username"></label>
+      <input type="text" name="user[username]" id="username" placeholder="Username" autofocus>
+      <i class="user icon"></i>
+    </div>
+    </div>
+    <div class="field">
+      <div class="ui icon input">
+      <label for="password"></label>
+      <input type="password" name="user[password]" id="password" placeholder="Password">
+      <i class="lock icon"></i>
+      </div>
     </div>
     <div>
-      <label for="password">Password: </label>
-      <input type="password" name="user[password]" id="password">
-    </div>
-    <div>
-      <input type="submit" value="Signup">
+      <input type="submit" value="Signup" class="ui positive button">
     </div>
 </form>
-  <p>
+
+  <p style="padding-top:0.3cm;">
     Have an account already? Login <a href="/login">here</a>
   </p>
+
+</div>
 </body>
 </html>

@@ -1,7 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100);
 
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto';
   font-size: 22px;
   /*background-color: black;*/
 }
